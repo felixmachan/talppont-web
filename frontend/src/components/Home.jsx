@@ -70,7 +70,7 @@ function Home() {
             <div className="home-image-card">
               <img
                 className="home-image"
-                src="../../public/680520.avif"
+                src="/680520.avif"
                 alt="Bartos Brigitta"
               />
             </div>
@@ -123,7 +123,7 @@ function Home() {
             <div className="home-image-card">
               <img
                 className="home-image"
-                src="../../public/680520.avif"
+                src="/680520.avif"
                 alt="Szalon hangulat"
               />
               <p className="home-image-caption">
@@ -151,7 +151,7 @@ function Home() {
             <article className="home-card">
               <img
                 className="home-card-image"
-                src="../../public/520360.webp"
+                src="/520360.webp"
                 alt="Reflexológia"
               />
               <h3>Reflexológia</h3>
@@ -167,7 +167,7 @@ function Home() {
             <article className="home-card">
               <img
                 className="home-card-image"
-                src="../../public/520360.webp"
+                src="/520360.webp"
                 alt="Talpmasszázs"
               />
               <h3>Talpmasszázs</h3>
@@ -183,7 +183,7 @@ function Home() {
             <article className="home-card">
               <img
                 className="home-card-image"
-                src="../../public/520360.webp"
+                src="/520360.webp"
                 alt="Pedikűr"
               />
               <h3>Pedikűr és körömápolás</h3>
@@ -233,7 +233,7 @@ function Home() {
             <div className="home-image-card">
               <img
                 className="home-image"
-                src="../../public/680520.avif"
+                src="/680520.avif"
                 alt="BEMER terápia"
               />
               <p className="home-image-caption">
@@ -274,7 +274,7 @@ function Home() {
             <div className="home-image-card">
               <img
                 className="home-image"
-                src="../../public/680520.avif"
+                src="/680520.avif"
                 alt="Eszközök és részletek"
               />
               <p className="home-image-caption">
