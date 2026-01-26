@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import purgecss from "@fullhuman/postcss-purgecss";
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
@@ -17,29 +16,7 @@ export default defineConfig(({ command }) => ({
   },
   css: {
     postcss: {
-      plugins: [
-        ...(command === "build"
-          ? [
-              purgecss({
-                content: ["./index.html", "./src/**/*.jsx", "./src/Navbar.css"],
-                safelist: [
-                            /^navbar/,
-                            /^container/,
-                            /^row/,
-                            /^col/,
-                            /^btn/,
-                            /^dropdown/,
-                            /^nav/,
-                            /^bg-/,
-                            /^text-/,
-                            /^d-/,
-                            /^flex/,
-                          ]
-
-              }),
-            ]
-          : []),
-      ],
+      plugins: []
     },
   },
 }));
