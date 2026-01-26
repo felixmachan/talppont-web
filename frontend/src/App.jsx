@@ -2,27 +2,26 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useNavigate,
-} from "react-router-dom"; // Router, useNavigate
-import { useEffect, useState } from "react";
+} from "react-router-dom";
+import { lazy, Suspense } from "react";
 import CollapsibleExample from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import Appointments from "./components/Appointments.jsx";
-import Contact from "./components/Contact.jsx";
-import Home from "./components/Home.jsx";
-import Services from "./components/Services.jsx";
-import Prices from "./components/Prices.jsx";
-import Faq from "./components/Faq.jsx";
-import Login from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
-import Profile from "./components/Profile.jsx";
 import { AuthProvider } from "./components/AuthContext.jsx";
-import ConfirmEmail from "./components/ConfirmEmail.jsx";
-import ResetPassword from "./components/ResetPassword.jsx";
-import ForgotPassword from "./components/ForgotPassword.jsx";
-import DatePickerComponent from "./components/DatePickerComponent.jsx";
 
-// 👇 Új komponens, ami Router-en belül lesz, így működik benne a useNavigate
+// Lazy load the page components
+const Home = lazy(() => import("./components/Home.jsx"));
+const Contact = lazy(() => import("./components/Contact.jsx"));
+const Services = lazy(() => import("./components/Services.jsx"));
+const Prices = lazy(() => import("./components/Prices.jsx"));
+const Faq = lazy(() => import("./components/Faq.jsx"));
+const Login = lazy(() => import("./components/Login.jsx"));
+const Register = lazy(() => import("./components/Register.jsx"));
+const Profile = lazy(() => import("./components/Profile.jsx"));
+const ConfirmEmail = lazy(() => import("./components/ConfirmEmail.jsx"));
+const ResetPassword = lazy(() => import("./components/ResetPassword.jsx"));
+const ForgotPassword = lazy(() => import("./components/ForgotPassword.jsx"));
+const DatePickerComponent = lazy(() => import("./components/DatePickerComponent.jsx"));
+
 
 function App() {
   return (
@@ -30,20 +29,22 @@ function App() {
       <Router>
         <AuthProvider>
           <CollapsibleExample />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/*<Route path="/appointments" element={<DatePickerComponent />} /> */}
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/prices" element={<Prices />} />
-            <Route path="/faq" element={<Faq />} />
-            {/*<Route path="/login" element={<Login />} /> */}
-            {/* <Route path="/register" element={<Register />} /> */}
-            {/* <Route path="/profile" element={<Profile />} /> */}
-            {/*<Route path="/confirm/:token" element={<ConfirmEmail />} /> */}
-            {/* <Route path="/reset-password/:token" element={<ResetPassword />} /> */}
-            {/*<Route path="/forgot-password" element={<ForgotPassword />} /> */}
-          </Routes>
+          <Suspense fallback={<div style={{ textAlign: 'center', padding: '50px' }}>Betöltés...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/*<Route path="/appointments" element={<DatePickerComponent />} /> */}
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/prices" element={<Prices />} />
+              <Route path="/faq" element={<Faq />} />
+              {/*<Route path="/login" element={<Login />} /> */}
+              {/* <Route path="/register" element={<Register />} /> */}
+              {/* <Route path="/profile" element={<Profile />} /> */}
+              {/*<Route path="/confirm/:token" element={<ConfirmEmail />} /> */}
+              {/* <Route path="/reset-password/:token" element={<ResetPassword />} /> */}
+              {/*<Route path="/forgot-password" element={<ForgotPassword />} /> */}
+            </Routes>
+          </Suspense>
           <Footer />
         </AuthProvider>
       </Router>

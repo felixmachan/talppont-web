@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import purgecss from "@fullhuman/postcss-purgecss";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
   base: "/",
   server: {
@@ -14,4 +15,24 @@ export default defineConfig({
       },
     },
   },
-});
+  css: {
+    postcss: {
+      plugins: [
+        ...(command === "build"
+          ? [
+              purgecss({
+                content: ["./index.html", "./src/**/*.jsx"],
+                safelist: {
+                  // Itt adhatsz meg olyan osztályokat, amiket nem szabad eltávolítani,
+                  // mert pl. dinamikusan, string-ként vannak összeállítva a JS-ben.
+                  // Például:
+                  // standard: ['random-class-name'],
+                  // deep: [/-(sm|md|lg|xl)$/], // Regex alapú
+                },
+              }),
+            ]
+          : []),
+      ],
+    },
+  },
+}));
