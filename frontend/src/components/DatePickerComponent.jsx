@@ -36,31 +36,6 @@ function DatePickerComponent() {
   // Lekerjuk a user adatokat
   useEffect(() => {
     if (mockMode) return;
-    const fetchUser = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) return;
-
-      try {
-        const res = await fetch("http://localhost:5000/api/me", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          setUser(data);
-        } else {
-          console.warn("Token ervenytelen vagy lejart:", res.status);
-          localStorage.removeItem("token");
-          setUser(null);
-        }
-      } catch (err) {
-        console.error("Nem sikerult lekerdezni a usert:", err);
-      }
-    };
-
     fetchUser();
   }, [mockMode]);
 

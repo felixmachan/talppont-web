@@ -72,6 +72,8 @@ function Home() {
                 className="home-image"
                 src="/680520.avif"
                 alt="Bartos Brigitta"
+                width={680}
+                height={520}
               />
             </div>
           </div>
@@ -125,6 +127,8 @@ function Home() {
                 className="home-image"
                 src="/680520.avif"
                 alt="Szalon hangulat"
+                width={680}
+                height={520}
               />
               <p className="home-image-caption">
                 Finom fények, természetes anyagok.
@@ -153,6 +157,8 @@ function Home() {
                 className="home-card-image"
                 src="/520360.webp"
                 alt="Reflexológia"
+                width={520}
+                height={360}
               />
               <h3>Reflexológia</h3>
               <p>
@@ -169,6 +175,8 @@ function Home() {
                 className="home-card-image"
                 src="/520360.webp"
                 alt="Talpmasszázs"
+                width={520}
+                height={360}
               />
               <h3>Talpmasszázs</h3>
               <p>
@@ -185,6 +193,8 @@ function Home() {
                 className="home-card-image"
                 src="/520360.webp"
                 alt="Pedikűr"
+                width={520}
+                height={360}
               />
               <h3>Pedikűr és körömápolás</h3>
               <p>
@@ -235,6 +245,8 @@ function Home() {
                 className="home-image"
                 src="/680520.avif"
                 alt="BEMER terápia"
+                width={680}
+                height={520}
               />
               <p className="home-image-caption">
                 Lágy impulzusokkal támogatott mikrokeringés.
@@ -276,6 +288,8 @@ function Home() {
                 className="home-image"
                 src="/680520.avif"
                 alt="Eszközök és részletek"
+                width={680}
+                height={520}
               />
               <p className="home-image-caption">
                 Professzionális eszközök, nyugodt fókusz.

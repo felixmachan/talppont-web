@@ -5,17 +5,15 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../Navbar.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useAuth } from "./AuthContext";
 
 function CollapsibleExample() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, authChanged } = useAuth();
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location, authChanged]);
+  }, [location]);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
