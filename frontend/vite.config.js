@@ -22,13 +22,20 @@ export default defineConfig(({ command }) => ({
           ? [
               purgecss({
                 content: ["./index.html", "./src/**/*.jsx", "./src/Navbar.css"],
-                safelist: {
-                  // Itt adhatsz meg olyan osztályokat, amiket nem szabad eltávolítani,
-                  // mert pl. dinamikusan, string-ként vannak összeállítva a JS-ben.
-                  // Például:
-                  // standard: ['random-class-name'],
-                  // deep: [/-(sm|md|lg|xl)$/], // Regex alapú
-                },
+                safelist: [
+                            /^navbar/,
+                            /^container/,
+                            /^row/,
+                            /^col/,
+                            /^btn/,
+                            /^dropdown/,
+                            /^nav/,
+                            /^bg-/,
+                            /^text-/,
+                            /^d-/,
+                            /^flex/,
+                          ]
+
               }),
             ]
           : []),
