@@ -38,13 +38,14 @@ footer {
   }
 
 .footer-wrapper {
-  padding-top: 20px;
+  /*padding-top: 20px; */
   width: 100vw;
   position: relative;
   left: 50%;
   transform: translateX(-50%) scaleX(1.03);
   line-height: 0;
   overflow-x: hidden;
+  border-top: 1px solid #d9d9d9 !important;
 }
 .developer {
   color: rgba(128, 128, 128, 0.475);

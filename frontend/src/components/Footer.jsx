@@ -5,7 +5,7 @@ import "../Footer.css";
 function Footer() {
   return (
     <div className="footer-wrapper">
-      <img className="footwave" src="/footer2.svg"></img>
+      {/*<img className="footwave" src="/footer2.svg"></img> */}
       <div className="container-fluid footer">
         <footer
           className="d-flex flex-wrap align-items-center py-2 px-4 my-0 footer-inner"
