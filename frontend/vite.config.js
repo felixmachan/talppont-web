@@ -21,7 +21,7 @@ export default defineConfig(({ command }) => ({
         ...(command === "build"
           ? [
               purgecss({
-                content: ["./index.html", "./src/**/*.jsx"],
+                content: ["./index.html", "./src/**/*.jsx", "./src/Navbar.css"],
                 safelist: {
                   // Itt adhatsz meg olyan osztályokat, amiket nem szabad eltávolítani,
                   // mert pl. dinamikusan, string-ként vannak összeállítva a JS-ben.
