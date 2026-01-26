@@ -29,10 +29,13 @@ function CollapsibleExample() {
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
             alt=""
-            src="/logo.webp"
+            src="/logo100.webp"
+            srcSet="logo100.webp 1x, logo200.webp 2x"
             width="100"
             height="100"
             className="d-inline-block align-top"
+            loading="eager"
+            decoding="async"
           />
           <span className="brand-text ms-3 talppont">TalpPont</span>
         </Navbar.Brand>

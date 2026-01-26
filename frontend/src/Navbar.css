@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 
 .custom-navbar {
   border-bottom: 5px solid #133E87 !important;
@@ -7,7 +6,7 @@
 .talppont {
   color: #133E87 !important;
   font-size: 3rem !important;
-  font-family: 'Imperial Script', cursive !important;
+  font-family: 'ImperialScript-Regular', cursive !important;
   font-weight: 400 !important;
   font-style: normal !important;
 }
