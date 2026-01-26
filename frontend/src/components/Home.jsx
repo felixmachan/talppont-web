@@ -114,7 +114,7 @@ function Home() {
                 </div>
                 <div className="home-info-row">
                   <span className="home-info-label">Időpontfoglalás</span>
-                  <span className="home-info-value">Telefonon</span>
+                  <span className="home-info-value">Telefon / Messenger</span>
                 </div>
               </div>
             </div>
@@ -249,11 +249,11 @@ function Home() {
           <div className="home-content">
             <span className="home-eyebrow">Minőség</span>
             <h2 className="home-title">
-              Eszközök és módszerek, amikben hiszünk
+              Eszközök és módszerek, amikben hiszek
             </h2>
             <p className="home-lead">
               A kezeléseket prémium eszközökkel és gondosan válogatott
-              anyagokkal végezzük, mert a részletek számítanak.
+              anyagokkal végzem, mert a részletek számítanak.
             </p>
             <ul className="home-list">
               <li>Higiénikus, steril eszközhasználat minden alkalommal.</li>
@@ -263,10 +263,10 @@ function Home() {
               </li>
             </ul>
             <div className="home-highlight home-inline-card">
-              <h3>Miért választanak minket?</h3>
+              <h3>Miért választanak engem?</h3>
               <p>
-                Mert nem futószalag, hanem figyelem. Tiszta kommunikáció, pontos
-                időkezelés, és őszinte törődés.
+                Mert nem futószalagszerű kezelést nyújtok, hanem figyelmet.
+                Tiszta kommunikáció, pontos időkezelés, és őszinte törődés.
               </p>
             </div>
           </div>
@@ -291,7 +291,7 @@ function Home() {
             <span className="home-eyebrow">Következő lépés</span>
             <h2 className="home-title">Készen állsz egy nyugodtabb napra?</h2>
             <p className="home-lead">
-              Válassz időpontot, és mi előkészítjük a teret, hogy már az első
+              Válassz időpontot, és én előkészítem a teret, hogy már az első
               percben érezd a különbséget.
             </p>
           </div>

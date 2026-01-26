@@ -12,7 +12,7 @@ function Footer() {
           style={{ justifyContent: "space-between" }}
         >
           <p className="col-12 col-md-4 mb-0 text-body-secondary footp footer-left">
-            © 2025 TalpPont
+            © 2026 TalpPont
             <br />
             <span className="developer">
               Full Stack development by Felix Machan

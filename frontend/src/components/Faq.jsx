@@ -13,12 +13,12 @@ function Faq() {
         {
           question: "Hogyan tudok időpontot foglalni?",
           answer:
-            "Az Időpontfoglalás oldalon válassz dátumot és időpontot, majd töltsd ki az adataidat.",
+            "Időpontot foglalni egyelőre telefonon vagy Messengeren keresztül tudsz. Az elérhetőségeimet megtalálod az Elérhetőségek oldalon.",
         },
         {
-          question: "Foglalhatok bejelentkezés nélkül?",
+          question: "Van lehetőség a weboldalon időpontot foglalni?",
           answer:
-            "Igen, vendégként is foglalhatsz. A név, email és telefonszám megadása szükséges.",
+            "Ez a funkció jelenleg még nem elérhető, de terveim szerint a jövőben erre is lesz lehetőség.",
         },
         {
           question: "Mennyi idővel előre érdemes foglalni?",
@@ -128,9 +128,6 @@ function Faq() {
           <div className="faq-panel-inner">
             <div className="faq-section-header">
               <h2 className="faq-section-title">{section.title}</h2>
-              <p className="faq-section-subtitle">
-                Összegyűjtöttük a leggyakrabban felmerülő kérdéseket.
-              </p>
             </div>
             <div className="faq-grid">
               {section.items.map((item, itemIndex) => {

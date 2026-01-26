@@ -45,7 +45,11 @@ function Contact() {
               <div className="icon">
                 <FaFacebook />
               </div>
-              <div className="text">Bartos Brigitta</div>
+              <div className="text">
+                <a href="https://www.facebook.com/brigi.bartos.3">
+                  Bartos Brigitta
+                </a>
+              </div>
             </div>
             <div className="credential">
               <div className="icon">
