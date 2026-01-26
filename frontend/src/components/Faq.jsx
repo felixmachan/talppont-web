@@ -39,12 +39,11 @@ function Faq() {
         {
           question: "Módosíthatom az időpontot?",
           answer:
-            "Igen, kérlek jelezd időben, és segítünk új időpontot találni.",
+            "Igen, kérlek jelezd időben, és segítek új időpontot találni.",
         },
         {
           question: "Milyen fizetési lehetőségek vannak?",
-          answer:
-            "Készpénz és előre egyeztetett egyéb megoldás is lehetséges.",
+          answer: "Készpénz és előre egyeztetett egyéb megoldás is lehetséges.",
         },
       ],
     },
@@ -86,7 +85,7 @@ function Faq() {
         {
           question: "Benőtt köröm esetén mit tegyek?",
           answer:
-            "Kíméletes kezelésre be tudsz jelentkezni, és kapsz megelőzési tanácsokat is.",
+            "Gyere el az erre a problémára megoldást kínáló kezelésre, és kapsz megelőzési tanácsokat is.",
         },
       ],
     },
@@ -96,13 +95,11 @@ function Faq() {
       items: [
         {
           question: "Mit vigyek magammal a kezelésre?",
-          answer:
-            "Kényelmes ruházat elég, a többit mi biztosítjuk.",
+          answer: "Kényelmes ruházat elég, a többit én biztosítom.",
         },
         {
           question: "Hol található a szalon?",
-          answer:
-            "A Kapcsolat oldalon megtalálod a címet és a térképet.",
+          answer: "A Kapcsolat oldalon megtalálod a címet és a térképet.",
         },
         {
           question: "Ajándékutalvány is elérhető?",
@@ -113,11 +110,10 @@ function Faq() {
     },
   ];
 
-
   return (
     <div className="faq-page">
       <Hero
-        title="GY.I.K."
+        title="Gyakran Ismételt Kérdések"
         body="Rövid, érthető válaszok a leggyakoribb kérdésekre."
         icon={<TbHelpCircle className="hero-icon" />}
       />

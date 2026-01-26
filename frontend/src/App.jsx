@@ -32,17 +32,17 @@ function App() {
           <CollapsibleExample />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/appointments" element={<DatePickerComponent />} />
+            {/*<Route path="/appointments" element={<DatePickerComponent />} /> */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
             <Route path="/prices" element={<Prices />} />
             <Route path="/faq" element={<Faq />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/confirm/:token" element={<ConfirmEmail />} />
-            <Route path="/reset-password/:token" element={<ResetPassword />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
+            {/*<Route path="/login" element={<Login />} /> */}
+            {/* <Route path="/register" element={<Register />} /> */}
+            {/* <Route path="/profile" element={<Profile />} /> */}
+            {/*<Route path="/confirm/:token" element={<ConfirmEmail />} /> */}
+            {/* <Route path="/reset-password/:token" element={<ResetPassword />} /> */}
+            {/*<Route path="/forgot-password" element={<ForgotPassword />} /> */}
           </Routes>
           <Footer />
         </AuthProvider>

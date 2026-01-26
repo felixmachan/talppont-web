@@ -18,7 +18,7 @@ function Contact() {
         icon={<IoIosContact className="hero-icon" />}
         showButton={true}
         buttonText="Hívj fel!"
-        href="tel:+36702310212"
+        href="tel:+36703143697"
       />
       <div className="contact-container-outer">
         <div className="contact-container-inner">
@@ -32,7 +32,7 @@ function Contact() {
                 <FaPhoneAlt />
               </div>
               <div className="text">
-                <a href="tel:+36702310212">+36 70 231 0212</a>
+                <a href="tel:+36703143697">+36 70 314 3697</a>
               </div>
             </div>
             <div className="credential">
@@ -45,13 +45,13 @@ function Contact() {
               <div className="icon">
                 <FaFacebook />
               </div>
-              <div className="text">Ixsz Ipszilon</div>
+              <div className="text">Bartos Brigitta</div>
             </div>
             <div className="credential">
               <div className="icon">
                 <IoLocation />
               </div>
-              <div className="text">1234 Budapest, Fő utca 1.</div>
+              <div className="text">2600 Vác, Nárcisz köz 5/a</div>
             </div>
           </div>
         </div>

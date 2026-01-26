@@ -6,6 +6,12 @@
 .blue-bg {
   background-color: #133e87 !important; /* Saját kék */
   color: white !important; /* Fehér szöveg */
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.blue-bg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .lead {
@@ -25,18 +31,25 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 
-.wave-svg {
-  width: 100%;
+.wave-wrap{
+  background: #608bc1;   /* ugyanaz mint a .hero háttér */
+  line-height: 0;        /* eltünteti az image körüli “baseline” jellegű hézagokat */
+  overflow: hidden;      /* a túllógást elrejti */
+}
+
+.wave-svg{
   display: block;
-  margin: 0 auto;
-  object-fit: cover;
-  overflow: -moz-hidden-unscrollable;
+  width: 100vw;          /* ne 100% -> legyen tényleg viewport-széles */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1.03); /* ez a “biztos túllógatás” */
 }
 
-@media (max-width: 768px) {
-  .wave-svg {
-    width: auto; /* Kép szélessége automatikusan igazodik telefonos nézethez */
-  }
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
 }

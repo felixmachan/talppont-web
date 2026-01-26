@@ -31,6 +31,7 @@
   border-radius: 10px;
   padding: 20px;
   flex: 1 1 300px;
+  min-width: 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   align-self: stretch;
   display: flex;
@@ -45,6 +46,7 @@
   padding: 10px !important;
   background-color: #133e87;
   border-color: #133e87;
+  overflow: hidden;
 }
 
 .booking-times {
@@ -138,6 +140,7 @@
 /* A naptar maga */
 .daypicker-wrapper {
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -201,7 +204,7 @@
 
 @media screen and (min-width: 768px) {
   .rdp {
-    --rdp-cell-size: 60px !important; /* nagyobb napmeret */
+    --rdp-cell-size: 50px !important; /* nagyobb napmeret */
   }
 }
 
@@ -227,8 +230,33 @@
   }
 }
 
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 520px) {
   .booking-layout {
-    width: 80%;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .booking-card {
+    padding: 16px;
+  }
+
+  .booking-calendar {
+    padding: 8px !important;
+  }
+
+  .daypicker-wrapper {
+    padding: 0 6px 8px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .daypicker-wrapper {
+    padding: 0 4px 6px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .booking-layout {
+    width: 97%;
   }
 }

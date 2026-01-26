@@ -23,7 +23,7 @@ function Prices() {
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
     );
     items.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
@@ -50,9 +50,17 @@ function Prices() {
       description: "Hát, nyak, váll és teljes test fókuszú kezelések.",
       items: [
         { name: "FLOW hátmasszázs", meta: "30 perc", price: "4900 Ft" },
-        { name: "FLOW hát- vagy testmasszázs", meta: "60 perc", price: "8500 Ft" },
+        {
+          name: "FLOW hát- vagy testmasszázs",
+          meta: "60 perc",
+          price: "8500 Ft",
+        },
         { name: "FLOW testmasszázs", meta: "75 perc", price: "10.500 Ft" },
-        { name: "FLOW teljes testmasszázs", meta: "90 perc", price: "12.500 Ft" },
+        {
+          name: "FLOW teljes testmasszázs",
+          meta: "90 perc",
+          price: "12.500 Ft",
+        },
       ],
     },
     {
@@ -74,7 +82,11 @@ function Prices() {
       title: "Lábápolás",
       description: "Esztétikai és gyógypedikűr kezelések, részletes árakkal.",
       items: [
-        { name: "Száraz, gépi pedikűr", meta: "esztétikai", price: "8500 Ft-tól" },
+        {
+          name: "Száraz, gépi pedikűr",
+          meta: "esztétikai",
+          price: "8500 Ft-tól",
+        },
         {
           name: "Mini pedikűr kezelések",
           meta: "rendszeres vendégeknek",
@@ -138,7 +150,10 @@ function Prices() {
             </div>
             <div className="price-grid">
               {section.items.map((item) => (
-                <div className="price-card" key={`${section.id}-${item.name}-${item.meta || ""}`}>
+                <div
+                  className="price-card"
+                  key={`${section.id}-${item.name}-${item.meta || ""}`}
+                >
                   <div className="price-card-main">
                     <span className="price-item-title">{item.name}</span>
                     {item.meta && (
@@ -155,11 +170,25 @@ function Prices() {
 
       <section className="price-warning-section reveal-item">
         <div className="price-warning-inner">
-          <p className="price-warning-title">Fontos tudnivaló</p>
-          <p className="price-warning-body">
-            Amennyiben az időpont 24 órán belül kerül lemondásra, a foglalás
-            árának 50%-át szükséges befizetni.
-          </p>
+          <p className="price-warning-title">Fontos tudnivalók</p>
+          <ul>
+            <li style={{ marginBottom: "10px" }}>
+              <p className="price-warning-body">
+                Amennyiben az időpont 24 órán belül kerül lemondásra, a foglalás
+                árának 50%-át szükséges befizetni.
+              </p>
+            </li>
+            <li style={{ marginBottom: "10px" }}>
+              <p className="price-warning-body">
+                Fenntartom a jogot az árak személyre szabott módosítására.
+              </p>
+            </li>
+            <li style={{ marginBottom: "10px" }}>
+              <p className="price-warning-body">
+                Az árak forintban értendők és tartalmazzák az ÁFA-t.
+              </p>
+            </li>
+          </ul>
         </div>
       </section>
     </div>

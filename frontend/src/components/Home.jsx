@@ -7,7 +7,7 @@ import "../Home.css";
 function Home() {
   const navigate = useNavigate();
   const handlePrimaryClick = () => {
-    navigate("/appointments");
+    navigate("/contact");
   };
   const revealRef = useRef(null);
 
@@ -78,6 +78,10 @@ function Home() {
                 <div className="home-info-row">
                   <span className="home-info-label">Helyszín</span>
                   <span className="home-info-value">Talppont műhely, Vác</span>
+                </div>
+                <div className="home-info-row">
+                  <span className="home-info-label">Időpontfoglalás</span>
+                  <span className="home-info-value">Telefonon</span>
                 </div>
               </div>
             </div>

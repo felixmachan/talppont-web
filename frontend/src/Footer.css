@@ -2,6 +2,11 @@
   background-color: #133e87;
   color: white; /* Fehér szöveg */
 }
+
+.footer-inner{
+  line-height: normal;
+}
+
 .footer p,
 .footer li {
   color: white !important;
@@ -10,12 +15,13 @@
   color: white !important;
 }
 
+
 .footwave {
-  width: 100%;
   display: block;
-  margin: 0 auto;
-  object-fit: cover;
-  overflow: -moz-hidden-unscrollable;
+  width: 100vw;          /* ne 100% -> legyen tényleg viewport-széles */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1.03); /* ez a “biztos túllógatás” */
 }
 .container-fluid {
   margin-top: 0px;
@@ -25,17 +31,54 @@ footer {
   width: 100%;
 }
 
+.footer-nav{
+    justify-content: flex-end !important;  /* jobb oldal */
+    margin-top: 8px;
+    padding-right: 10px !important;
+  }
+
 .footer-wrapper {
-  padding-top: 50px;
-  width: 100%;
-  background-color: #ffffff;
+  padding-top: 20px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1.03);
+  line-height: 0;
+  overflow-x: hidden;
 }
 .developer {
   color: rgba(128, 128, 128, 0.475);
 }
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
 
 @media (max-width: 768px) {
-  .footwave {
+  .footp {
+    text-align: center;
     width: 100%;
+    margin-left: 10px;
+  }
+  .developer {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .footer-left{
+    text-align: left;           /* “Talppont legfelül” */
+    margin-bottom: 5px;
+  }
+
+  .developer{
+    display: block;
+    white-space: normal;       /* törhessen 2 sorba */
+  }
+
+  .footer-nav{
+    justify-content: flex-end !important;  /* jobb oldal */
+    margin-top: 8px;
+    padding-right: 10px !important;
   }
 }

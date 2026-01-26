@@ -56,14 +56,17 @@ function CollapsibleExample() {
               <NavDropdown.Item as={Link} to="/prices">
                 Árak
               </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/faq">
+                Kérdések és válaszok
+              </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/appointments">
+            {/* <Nav.Link as={Link} to="/appointments">
               <span className="nav-text">Időpontfoglalás</span>
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link as={Link} to="/contact">
               <span className="nav-text">Kapcsolat</span>
             </Nav.Link>
-            {user ? (
+            {/*{user ? (
               <>
                 <Nav.Link as={Link} to="/profile">
                   <span className="nav-text">Profilom</span>
@@ -73,7 +76,7 @@ function CollapsibleExample() {
               <Nav.Link as={Link} to="/login">
                 <span className="nav-text login-button">Bejelentkezés</span>
               </Nav.Link>
-            )}
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>
