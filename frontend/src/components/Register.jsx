@@ -6,8 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../DatePickerComponent.css";
 import makeAnimated from "react-select/animated";
 import Creatable from "react-select/creatable";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import GoogleLoginButton from "./LoginWithGoogle";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -23,7 +21,7 @@ const options = [
 ];
 
 function Register() {
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // Példa adat küldése a backendnek
@@ -38,27 +36,7 @@ function Register() {
     };
     console.log("Küldött adatok:", dataToSend);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // EZ KELL a JWT sütikhez!
-        body: JSON.stringify(dataToSend),
-      });
-
-      if (response.ok) {
-        const json = await response.json();
-        console.log("Sikeres regisztráció:", json);
-        // Itt kezelheted a sikeres regisztrációt (pl. átirányítás vagy üzenet)
-      } else {
-        const errorData = await response.json();
-        setErrorMessage(errorData.error || "Hiba a regisztráció során");
-      }
-    } catch (error) {
-      console.error("Hálózati hiba:", error);
-    }
+    setErrorMessage("");
   };
 
   const [firstName, setFirstName] = useState("");
@@ -258,14 +236,6 @@ function Register() {
             Regisztráció
           </button>
 
-          <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-            <GoogleLoginButton
-              mode="register"
-              className="btn btn-primary w-100 py-2 login"
-              text="Regisztrálj Google fiókkal"
-              setError={setErrorMessage}
-            />
-          </GoogleOAuthProvider>
         </form>
       </div>
     </div>

@@ -13,6 +13,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // megakadályozza az alapértelmezett form submit-et (oldalfrissítés)
@@ -58,14 +59,17 @@ function Login() {
       />
       <div className="form-wrapper-outer">
         <div className="form-wrapper d-flex justify-content-center align-items-center">
-          <main className="form-signin formmain mb-3">
+          <main
+            className="form-signin formmain mb-3 bg-light border"
+            style={{ boxShadow: "0 3px 10px rgba(0, 0, 0, 0.08)" }}
+          >
             <form onSubmit={handleSubmit}>
               <img
                 className="mb-4 mx-auto d-block"
                 src="/logo.png"
                 alt=""
-                width="100"
-                height="100"
+                width="130"
+                height="130"
               />
               <h1 className="h3 mb-3 fw-normal text-center">
                 Kérlek jelentkezz be!
@@ -101,7 +105,11 @@ function Login() {
                   value="remember-me"
                   id="checkDefault"
                 />
-                <label className="form-check-label" htmlFor="checkDefault">
+                <label
+                  className="form-check-label"
+                  htmlFor="checkDefault"
+                  style={{ color: "black !important" }}
+                >
                   Emlékezz rám
                 </label>
                 {error && (
@@ -125,16 +133,16 @@ function Login() {
                   Regisztráció
                 </button>
               </Link>
-              <GoogleOAuthProvider
-                clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
-              >
-                <GoogleLoginButton
-                  mode="login"
-                  className="btn btn-primary w-100 py-2 login"
-                  text="Lépj be Google fiókkal"
-                  setError={setError}
-                />
-              </GoogleOAuthProvider>
+              {googleClientId && (
+                <GoogleOAuthProvider clientId={googleClientId}>
+                  <GoogleLoginButton
+                    mode="login"
+                    className="btn btn-primary w-100 py-2 login"
+                    text="L?pj be Google fi?kkal"
+                    setError={setError}
+                  />
+                </GoogleOAuthProvider>
+              )}
             </form>
             <div className="text-center mt-3">
               <Link to="/forgot-password">Elfelejtetted a jelszavad?</Link>

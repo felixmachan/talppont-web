@@ -1,9 +1,242 @@
-.cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 20px;
-    padding: 20px;
-    padding-top: 30px
+﻿.home-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
 }
 
+.home-panel {
+  width: 100%;
+  padding: 64px 6vw;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.home-panel-light {
+  background-color: #ffffff;
+}
+
+.home-panel-accent {
+  background: linear-gradient(135deg, rgba(19, 62, 135, 0.08), rgba(96, 139, 193, 0.15));
+}
+
+.home-panel-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.home-panel-stack {
+  grid-template-columns: 1fr;
+}
+
+.home-eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  color: #133e87;
+  margin-bottom: 12px;
+}
+
+.home-title {
+  margin: 0 0 12px;
+  color: #133e87;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.home-lead {
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+.home-list {
+  margin: 0 0 24px;
+  padding-left: 1.2rem;
+}
+
+.home-list li {
+  margin-bottom: 10px;
+}
+
+.home-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.home-tag {
+  border: 1px solid rgba(19, 62, 135, 0.25);
+  color: #133e87;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(19, 62, 135, 0.06);
+  font-size: 0.85rem;
+}
+
+.home-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.home-image-card {
+  background: #ffffff;
+  border: 1px solid rgba(19, 62, 135, 0.2);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 18px 32px rgba(19, 62, 135, 0.12);
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+.home-image-caption {
+  margin: 12px 4px 0;
+  color: #133e87;
+  font-size: 0.95rem;
+}
+
+.home-info-card {
+  background: #ffffff;
+  border: 1px solid rgba(19, 62, 135, 0.2);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.home-info-title {
+  margin: 0 0 16px;
+  color: #133e87;
+}
+
+.home-info-list {
+  display: grid;
+  gap: 12px;
+}
+
+.home-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(19, 62, 135, 0.08);
+}
+
+.home-info-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #133e87;
+}
+
+.home-info-value {
+  font-weight: 600;
+  color: #133e87;
+}
+
+.home-card-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.home-card {
+  background: #ffffff;
+  border: 1px solid rgba(19, 62, 135, 0.2);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 16px 28px rgba(19, 62, 135, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.home-card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+.home-card h3 {
+  margin: 0;
+  color: #133e87;
+}
+
+.home-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.home-highlight {
+  border-radius: 18px;
+  padding: 20px;
+  background: rgba(19, 62, 135, 0.08);
+  border: 1px dashed rgba(19, 62, 135, 0.35);
+}
+
+.home-highlight h3 {
+  margin: 0 0 10px;
+  color: #133e87;
+}
+
+.home-highlight p {
+  margin: 0;
+}
+
+.home-cta {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-button {
+  border: none;
+  background: #133e87;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-button:hover {
+  background: #0f2f68;
+}
+
+@media (max-width: 1000px) {
+  .home-panel-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .home-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-panel {
+    padding: 48px 6vw;
+  }
+
+  .home-card {
+    padding: 16px;
+  }
+
+  .home-image-card,
+  .home-info-card,
+  .home-highlight {
+    padding: 16px;
+  }
+}

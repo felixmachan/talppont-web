@@ -1,17 +1,31 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import "../dick.css"; // ha van saját stílusod
-import "../DayPicker.css"; // ha van saját DayPicker stílusod
+import "../dick.css"; // ha van sajat stilusod
+import "../DayPicker.css"; // ha van sajat DayPicker stilusod
 import Hero from "./Hero.jsx";
 import { MdMoreTime } from "react-icons/md";
 
 function DatePickerComponent() {
+  const mockMode = true;
+  const mockSlots = [
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "11:30",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:30",
+    "17:30",
+  ];
   const [selectedDate, setSelectedDate] = useState(null);
   const [availableSlots, setAvailableSlots] = useState([]);
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [user, setUser] = useState(null); // bejelentkezett user
-  const [error, setError] = useState(""); // hibakezeléshez
+  const [error, setError] = useState(""); // hibakezeleshez
+  const [success, setSuccess] = useState("");
 
   const [note, setNote] = useState("");
 
@@ -19,8 +33,9 @@ function DatePickerComponent() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  // Lekérjük a user adatokat
+  // Lekerjuk a user adatokat
   useEffect(() => {
+    if (mockMode) return;
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
       if (!token) return;
@@ -37,19 +52,19 @@ function DatePickerComponent() {
           const data = await res.json();
           setUser(data);
         } else {
-          console.warn("Token érvénytelen vagy lejárt:", res.status);
+          console.warn("Token ervenytelen vagy lejart:", res.status);
           localStorage.removeItem("token");
           setUser(null);
         }
       } catch (err) {
-        console.error("Nem sikerült lekérni a usert:", err);
+        console.error("Nem sikerult lekerdezni a usert:", err);
       }
     };
 
     fetchUser();
-  }, []);
+  }, [mockMode]);
 
-  // Dátum formázás magyarosan
+  // Datum formazas magyarosan
   const formatDate = (date) => {
     return date
       ? new Intl.DateTimeFormat("hu-HU", {
@@ -59,40 +74,59 @@ function DatePickerComponent() {
       : "Válassz egy dátumot";
   };
 
-  // Foglalható időpontok lekérése
+  // Foglalhato idopontok lekerdezese
   useEffect(() => {
     const fetchSlots = async () => {
-      if (!selectedDate) return;
+      if (!selectedDate) {
+        setAvailableSlots([]);
+        setSelectedSlot(null);
+        return;
+      }
+      if (mockMode) {
+        setAvailableSlots(mockSlots);
+        return;
+      }
       const formattedDate = selectedDate.toISOString().split("T")[0];
       const response = await fetch(
-        `/api/available-slots?date=${formattedDate}`
+        `/api/available-slots?date=${formattedDate}`,
       );
       const data = await response.json();
       setAvailableSlots(data);
     };
 
     fetchSlots();
-  }, [selectedDate]);
+  }, [selectedDate, mockMode]);
 
-  // Slotok szétbontása délelőtt/délután
+  // Slotok szetbontasa delelott/delutan
   const morningSlots = availableSlots.filter(
-    (t) => parseInt(t.split(":")[0]) < 12
+    (t) => parseInt(t.split(":")[0]) < 12,
   );
   const afternoonSlots = availableSlots.filter(
-    (t) => parseInt(t.split(":")[0]) >= 12
+    (t) => parseInt(t.split(":")[0]) >= 12,
   );
 
-  // Foglalás végpont hívás
+  // Foglalas vegpont hivasa
   const handleBooking = async () => {
-    setError(""); // minden próbálkozás előtt töröljük az előző hibát
+    setError("");
+    setSuccess("");
 
     if (!selectedDate || !selectedSlot) {
-      setError("Válassz ki egy dátumot és időpontot!");
+      setError("Valassz ki egy datumot es idopontot!");
       return;
     }
 
     if (!user && (!name.trim() || !email.trim() || !phone.trim())) {
-      setError("Kérlek, töltsd ki a nevet, emailt és telefonszámot!");
+      setError("Kerlek, toltsd ki a nevet, emailt es telefonszamot!");
+      return;
+    }
+
+    if (mockMode) {
+      setSuccess("Az idopont lefoglalva (demo).");
+      setSelectedSlot(null);
+      setNote("");
+      setName("");
+      setEmail("");
+      setPhone("");
       return;
     }
 
@@ -116,19 +150,18 @@ function DatePickerComponent() {
       const data = await res.json();
 
       if (res.ok) {
-        setError(""); // siker esetén töröljük a hibát
+        setError("");
         setSelectedSlot(null);
         setNote("");
         setName("");
         setEmail("");
         setPhone("");
-        // opcionálisan kiírhatsz egy sikerüzenetet is itt, de nem kötelező
       } else {
-        setError(data.error || "Hiba történt a foglalás során.");
+        setError(data.error || "Hiba tortent a foglalas soran.");
       }
     } catch (err) {
-      console.error("Hiba a foglalásnál:", err);
-      setError("Hálózati hiba történt.");
+      console.error("Hiba a foglalasnal:", err);
+      setError("Halozati hiba tortent.");
     }
   };
 
@@ -140,134 +173,137 @@ function DatePickerComponent() {
         icon={<MdMoreTime className="hero-icon" />}
       />
       <div className="datepicker-container">
-        <div className="row wrapper">
-          <div className="col-lg-5 col-md-6 datepick-col">
-            <div className="daypicker-wrapper">
-              <DayPicker
-                mode="single"
-                selected={selectedDate}
-                onSelect={setSelectedDate}
-                disabled={{ before: new Date() }}
-                locale="hu"
-              />
+        <div className="booking-layout">
+          <div className="booking-top-row">
+            <div className="booking-card booking-calendar">
+              <div className="daypicker-wrapper">
+                <DayPicker
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={setSelectedDate}
+                  disabled={{ before: new Date() }}
+                  locale="hu"
+                />
+              </div>
+            </div>
+
+            <div className="booking-card booking-times">
+              <h5 style={{ marginBottom: "30px" }}>
+                {formatDate(selectedDate)}
+              </h5>
+
+              {availableSlots.length === 0 ? (
+                <p>Nincs elérhető időpont erre a napra.</p>
+              ) : (
+                <>
+                  {morningSlots.length > 0 && (
+                    <div className="slot-section mb-2">
+                      <h6>Délelőtt</h6>
+                      <div className="slot-grid mb-3">
+                        {morningSlots.map((slot, idx) => (
+                          <div
+                            key={idx}
+                            className={`slot-card ${
+                              selectedSlot === slot ? "selected" : ""
+                            }`}
+                            onClick={() =>
+                              setSelectedSlot((prev) =>
+                                prev === slot ? null : slot,
+                              )
+                            }
+                          >
+                            {slot}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {afternoonSlots.length > 0 && (
+                    <div className="slot-section">
+                      <h6>Délután</h6>
+                      <div className="slot-grid">
+                        {afternoonSlots.map((slot, idx) => (
+                          <div
+                            key={idx}
+                            className={`slot-card ${
+                              selectedSlot === slot ? "selected" : ""
+                            }`}
+                            onClick={() =>
+                              setSelectedSlot((prev) =>
+                                prev === slot ? null : slot,
+                              )
+                            }
+                          >
+                            {slot}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           </div>
 
-          <div className="col-lg-7 col-md-6 mb-4 mt-5">
-            <h5 className="mb-3">{formatDate(selectedDate)}</h5>
-
-            {availableSlots.length === 0 ? (
-              <p>Nincs elérhető időpont erre a napra.</p>
-            ) : (
-              <>
-                {morningSlots.length > 0 && (
-                  <>
-                    <h6>Délelőtt</h6>
-                    <div className="slot-grid mb-3">
-                      {morningSlots.map((slot, idx) => (
-                        <div
-                          key={idx}
-                          className={`slot-card ${
-                            selectedSlot === slot ? "selected" : ""
-                          }`}
-                          onClick={() =>
-                            setSelectedSlot((prev) =>
-                              prev === slot ? null : slot
-                            )
-                          }
-                        >
-                          {slot}
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-                {afternoonSlots.length > 0 && (
-                  <>
-                    <h6>Délután</h6>
-                    <div className="slot-grid">
-                      {afternoonSlots.map((slot, idx) => (
-                        <div
-                          key={idx}
-                          className={`slot-card ${
-                            selectedSlot === slot ? "selected" : ""
-                          }`}
-                          onClick={() =>
-                            setSelectedSlot((prev) =>
-                              prev === slot ? null : slot
-                            )
-                          }
-                        >
-                          {slot}
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </>
-            )}
-          </div>
-          {/* Foglalási űrlap kiválasztott időpont után */}
           {selectedSlot && (
-            <div className="booking-form mt-4 p-3 border rounded bg-light">
-              <h6>Foglalás összefoglaló</h6>
-              <p>
-                <strong>Dátum:</strong> {formatDate(selectedDate)}
-              </p>
-              <p>
-                <strong>Időpont:</strong> {selectedSlot}
-              </p>
+            <div className="booking-form booking-card mt-4">
+              <h6 className="booking-summary-title">Foglalás összefoglaló</h6>
+              <div className="booking-meta">
+                <span className="booking-pill">
+                  Dátum: {formatDate(selectedDate)}
+                </span>
+                <span className="booking-pill">Időpont: {selectedSlot}</span>
+              </div>
 
-              {!user && (
-                <>
-                  <div className="mb-2">
-                    <label>Név</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      style={{ width: "40%" }}
-                    />
-                  </div>
-                  <div className="mb-2">
-                    <label>Email</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      style={{ width: "40%" }}
-                    />
-                  </div>
-                  <div className="mb-2">
-                    <label>Telefonszám</label>
-                    <input
-                      type="tel"
-                      className="form-control"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      style={{ width: "40%" }}
-                    />
-                  </div>
-                </>
-              )}
-
-              <div className="mb-2">
+              <div className="booking-fields">
+                {!user && (
+                  <>
+                    <div className="mb-2">
+                      <label>Név</label>
+                      <input
+                        type="text"
+                        className="form-control booking-input"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Kovács Pista"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label>Email</label>
+                      <input
+                        type="email"
+                        className="form-control booking-input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="pista.kovacs@example.com"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label>Telefonszám</label>
+                      <input
+                        type="tel"
+                        className="form-control booking-input"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="+36 30 123 4567"
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+              <div className="booking-note">
                 <label>Megjegyzés</label>
                 <textarea
-                  className="form-control"
+                  className="form-control booking-textarea"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
-                  style={{ width: "40%" }}
                 />
               </div>
 
               <button className="btn btn-primary" onClick={handleBooking}>
-                Foglalás megerősítése
+                Foglalás vendégként
               </button>
 
-              {/* Hibaszöveg piros színnel */}
               {error && (
                 <div
                   className="alert alert-danger text-center mt-3"
@@ -275,6 +311,16 @@ function DatePickerComponent() {
                   style={{ width: "30%" }}
                 >
                   {error}
+                </div>
+              )}
+
+              {success && (
+                <div
+                  className="alert alert-success text-center mt-3"
+                  role="alert"
+                  style={{ width: "30%" }}
+                >
+                  {success}
                 </div>
               )}
 

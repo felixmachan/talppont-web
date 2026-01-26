@@ -11,7 +11,7 @@ function Footer() {
             © 2025 TalpPont
             <br />
             <span className="developer">
-              Full Stack fejlesztés: Machán Félix
+              Full Stack deveopment by Felix Machan
             </span>
           </p>
 
@@ -39,11 +39,6 @@ function Footer() {
             <li className="nav-item">
               <a href="#" className="nav-link px-2 text-body-light footp">
                 GY.I.K
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-body-light footp">
-                Rólam
               </a>
             </li>
           </ul>

@@ -26,6 +26,7 @@ function Contact() {
             <Map />
           </div>
           <div className="contact cont">
+            <span className="contact-label">Kontakt</span>
             <div className="credential">
               <div className="icon">
                 <FaPhoneAlt />

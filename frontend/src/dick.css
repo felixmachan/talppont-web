@@ -1,51 +1,158 @@
 /* Alap layout */
 .datepicker-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
   height: 100%;
 }
 
-.booking-form {
-  width: 60%;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* A naptár oszlop */
-.datepick-col {
-  display: flex;
-  justify-content: center;
-}
-
-/* A naptár maga */
-.daypicker-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.datepicker-times {
-  flex: 1;
-}
-
-/* Wrapper kártya stílus */
-.row.wrapper {
+.booking-layout {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
   width: 60%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 24px;
 }
 
-/* Időpontok megjelenítése */
-/* Slot kártyák */
+.booking-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.booking-card {
+  background-color: #f8f9fa;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 300px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-calendar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  padding: 10px !important
+}
+
+.booking-times {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.booking-form {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.booking-summary-title {
+  margin: 0 0 20px;
+}
+
+.booking-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.booking-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(19, 62, 135, 0.08);
+  border: 1px solid rgba(19, 62, 135, 0.35);
+  color: #133e87;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.booking-fields {
+  width: 100%;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.booking-form .mb-2 {
+  width: 100%;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.booking-note {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .booking-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .booking-fields .mb-2 {
+    margin: 0;
+  }
+
+  .booking-form .btn-primary {
+    width: auto;
+  }
+}
+
+.booking-input,
+.booking-textarea {
+  width: 100%;
+}
+
+.booking-form .btn-primary {
+  background-color: #133e87;
+  border-color: #133e87;
+  align-self: flex-start;
+}
+
+.booking-form .btn-primary:hover {
+  background-color: #0f2f68;
+  border-color: #0f2f68;
+}
+
+/* A naptar maga */
+.daypicker-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 10px 10px;
+  flex: 1;
+}
+
+.slot-section + .slot-section {
+  margin-top: 24px;
+}
+
+.slot-section + .slot-section {
+  margin-top: 24px;
+}
+
+/* Ido pontok megjelenitese */
+/* Slot kartyak */
 .slot-grid {
   display: flex;
   flex-wrap: wrap;
@@ -54,11 +161,18 @@
 
 .slot-card {
   padding: 10px 15px;
-  background-color: #e0e0e0;
+  background-color: #f1f3f5;
+  color: #133e87;
+  border: 1px solid rgba(19, 62, 135, 0.15);
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
   transition: all 0.2s;
+}
+
+.slot-card:hover {
+  background-color: #e9eef5;
+  border-color: rgba(19, 62, 135, 0.35);
 }
 
 .rdp-month {
@@ -68,6 +182,7 @@
 .slot-card.selected {
   background-color: #133e87;
   color: white;
+  border-color: #133e87;
 }
 
 .rdp-root {
@@ -76,7 +191,7 @@
 }
 
 .rdp {
-  --rdp-cell-size: 45px !important; /* alapméret kis képernyőn */
+  --rdp-cell-size: 45px !important; /* alapmeret kis kepernyon */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -84,24 +199,34 @@
 
 @media screen and (min-width: 768px) {
   .rdp {
-    --rdp-cell-size: 60px !important; /* nagyobb napméret */
+    --rdp-cell-size: 60px !important; /* nagyobb napmeret */
   }
 }
 
 @media screen and (min-width: 1024px) {
   .rdp {
-    --rdp-cell-size: 75px !important; /* még nagyobb napméret nagy kijelzőn */
+    --rdp-cell-size: 75px !important; /* meg nagyobb napmeret nagy kijelzon */
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .row.wrapper {
+  .booking-layout {
     width: 98%;
   }
 }
 
+@media screen and (max-width: 935px) {
+  .booking-top-row {
+    flex-direction: column;
+  }
+
+  .booking-form .btn-primary {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 1370px) {
-  .row.wrapper {
+  .booking-layout {
     width: 80%;
   }
 }

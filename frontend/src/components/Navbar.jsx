@@ -53,7 +53,7 @@ function CollapsibleExample() {
               <NavDropdown.Item as={Link} to="/services">
                 Kezelések
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="#">
+              <NavDropdown.Item as={Link} to="/prices">
                 Árak
               </NavDropdown.Item>
             </NavDropdown>
