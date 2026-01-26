@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import CollapsibleExample from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import { AuthProvider } from "./components/AuthContext.jsx";
 import "./App.css";
 
 const Home = lazy(() => import("./components/Home.jsx"));
@@ -52,9 +51,7 @@ function AppShell() {
 export default function App() {
   return (
     <Router>
-      <AuthProvider>
-        <AppShell />
-      </AuthProvider>
+      <AppShell />
     </Router>
   );
 }
