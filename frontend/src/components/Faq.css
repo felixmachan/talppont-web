@@ -1,0 +1,135 @@
+.faq-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.faq-panel {
+  width: 100%;
+  padding: 64px 6vw;
+  border-top: 1px solid rgba(19, 62, 135, 0.14);
+  border-bottom: 1px solid rgba(19, 62, 135, 0.14);
+}
+
+.faq-no-top-border {
+  border-top: none;
+}
+
+.faq-no-bottom-border {
+  border-bottom: none;
+}
+
+.faq-light {
+  background-color: #ffffff;
+}
+
+.faq-accent {
+  background: linear-gradient(135deg, rgba(19, 62, 135, 0.08), rgba(96, 139, 193, 0.15));
+}
+
+.faq-panel-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+
+.faq-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-section-title {
+  margin: 0;
+  color: #133e87;
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+}
+
+.faq-section-subtitle {
+  margin: 0;
+  color: #2f3b52;
+  max-width: 60ch;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.faq-card {
+  background: #ffffff;
+  border: 1px solid rgba(19, 62, 135, 0.2);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 16px 28px rgba(19, 62, 135, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.faq-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(19, 62, 135, 0.16);
+}
+
+.faq-question {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: #133e87;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  min-height: 100px;
+}
+
+.faq-toggle {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #133e87;
+}
+
+.faq-answer {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 20px;
+  color: #1f2b3f;
+  font-size: 0.95rem;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding-bottom: 18px;
+}
+
+.faq-answer-open {
+  max-height: 200px;
+  opacity: 1;
+  padding: 0 20px 18px;
+}
+
+.faq-card-open {
+  box-shadow: 0 18px 30px rgba(19, 62, 135, 0.16);
+}
+
+@media (max-width: 700px) {
+  .faq-panel {
+    padding: 48px 6vw;
+  }
+
+  .faq-question {
+    padding: 18px;
+  }
+}

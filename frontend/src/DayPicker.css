@@ -1,8 +1,8 @@
 /* Variables declaration */
 /* prettier-ignore */
 .rdp-root {
-  --rdp-accent-color: #133E87; /* The accent color used for selected days and UI elements. */
-  --rdp-accent-background-color: #f0f0ff; /* The accent background color used for selected days and UI elements. */
+  --rdp-accent-color: #ffffff; /* The accent color used for selected days and UI elements. */
+  --rdp-accent-background-color: rgba(255, 255, 255, 0.18); /* The accent background color used for selected days and UI elements. */
 
   --rdp-day-height: 44px; /* The height of the day cells. */
   --rdp-day-width: 44px; /* The width of the day cells. */
@@ -12,10 +12,10 @@
   --rdp-day_button-height: 42px; /* The height of the day cells. */
   --rdp-day_button-width: 42px; /* The width of the day cells. */
   
-  --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
+  --rdp-selected-border: 2px solid #ffffff; /* The border of the selected days. */
   --rdp-disabled-opacity: 0.5; /* The opacity of the disabled days. */
   --rdp-outside-opacity: 0.75; /* The opacity of the days outside the current month. */
-  --rdp-today-color: var(--rdp-accent-color); /* The color of the today's date. */
+  --rdp-today-color: #ffffff; /* The color of the today's date. */
   
   --rdp-dropdown-gap: 0.5rem;/* The gap between the dropdowns used in the month captons. */
   
@@ -67,6 +67,8 @@
 .rdp-root {
   position: relative; /* Required to position the navigation toolbar. */
   box-sizing: border-box;
+  background-color: #133E87;
+  color: #ffffff;
 }
 
 .rdp-root * {
@@ -109,6 +111,7 @@
 
   white-space: nowrap;
   border: 0;
+  color: #ffffff;
 }
 
 .rdp-dropdown:focus-visible ~ .rdp-caption_label {
@@ -132,6 +135,7 @@
   justify-content: center;
   position: relative;
   appearance: none;
+  color: #ffffff;
 
   width: var(--rdp-nav_button-width);
   height: var(--rdp-nav_button-height);
@@ -148,7 +152,7 @@
 
 .rdp-chevron {
   display: inline-block;
-  fill: var(--rdp-accent-color);
+  fill: #ffffff;
 }
 
 .rdp-root[dir="rtl"] .rdp-nav .rdp-chevron {
@@ -257,6 +261,7 @@
   font-size: smaller;
   text-align: var(--rdp-weekday-text-align);
   text-transform: var(--rdp-weekday-text-transform);
+  color: #ffffff;
 }
 
 .rdp-week_number {
@@ -282,10 +287,13 @@
 
 .rdp-selected .rdp-day_button {
   border: var(--rdp-selected-border);
+  background-color: var(--rdp-accent-background-color);
+  color: #ffffff;
 }
 
 .rdp-outside {
   opacity: var(--rdp-outside-opacity);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .rdp-disabled {

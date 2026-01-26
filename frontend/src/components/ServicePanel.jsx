@@ -9,6 +9,8 @@ function ServicePanel(props) {
     bullets = [],
     tags = [],
     eyebrowLabel = "Kezeles",
+    badgeLabel,
+    badgeClassName = "",
     panelClassName = "",
     cardTitle,
     infoItems = [],
@@ -27,9 +29,16 @@ function ServicePanel(props) {
       <div className="service-panel-inner">
         <div className="service-main">
           {eyebrowLabel && (
-            <span className="service-eyebrow">
-              {eyebrowLabel} {id}
-            </span>
+            <div className="service-eyebrow-row">
+              <span className="service-eyebrow">
+                {eyebrowLabel} {id}
+              </span>
+              {badgeLabel && (
+                <span className={`service-badge ${badgeClassName}`.trim()}>
+                  {badgeLabel}
+                </span>
+              )}
+            </div>
           )}
           <h2 className="service-title">{title}</h2>
           <p className="service-lead">{lead}</p>

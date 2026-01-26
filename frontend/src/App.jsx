@@ -12,6 +12,7 @@ import Contact from "./components/Contact.jsx";
 import Home from "./components/Home.jsx";
 import Services from "./components/Services.jsx";
 import Prices from "./components/Prices.jsx";
+import Faq from "./components/Faq.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Profile from "./components/Profile.jsx";
@@ -35,6 +36,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
             <Route path="/prices" element={<Prices />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />

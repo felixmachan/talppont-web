@@ -15,6 +15,17 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-item.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .service-panel:last-child {
   margin-bottom: 0 !important;
   border-bottom: none !important;
@@ -50,10 +61,46 @@
   margin-bottom: 12px;
 }
 
+.service-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.service-eyebrow-row .service-eyebrow {
+  margin-bottom: 0;
+}
+
+.service-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 1px solid rgba(19, 62, 135, 0.25);
+  color: #133e87;
+  background: rgba(19, 62, 135, 0.08);
+}
+
+.service-badge-new {
+  border-color: rgba(186, 145, 62, 0.6);
+  color: #8a5e0c;
+  background: rgba(255, 219, 140, 0.25);
+}
+
 .service-title {
   margin: 0 0 12px;
   color: #133e87;
   font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.service-title-accent {
+  color: #8a5e0c;
 }
 
 .service-lead {

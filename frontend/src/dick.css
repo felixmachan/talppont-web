@@ -42,7 +42,9 @@
   align-items: flex-start;
   justify-content: center;
   flex: 1;
-  padding: 10px !important
+  padding: 10px !important;
+  background-color: #133e87;
+  border-color: #133e87;
 }
 
 .booking-times {

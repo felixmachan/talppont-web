@@ -1,18 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Footer.css";
 
 function Footer() {
   return (
     <div className="footer-wrapper">
-      <img className="footwave" src="/footer2.svg"></img> {/* 1000x70 */}
+      <img className="footwave" src="/footer2.svg"></img>
       <div className="container-fluid footer">
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-0">
           <p className="col-md-4 mb-0 text-body-secondary footp">
             © 2025 TalpPont
             <br />
-            <span className="developer">
-              Full Stack deveopment by Felix Machan
-            </span>
+            <span className="developer">Full Stack development by Felix Machan</span>
           </p>
 
           <a
@@ -27,19 +26,19 @@ function Footer() {
 
           <ul className="nav col-md-4 justify-content-end">
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-body-light footp">
+              <Link to="/" className="nav-link px-2 text-body-light footp">
                 Kezdőlap
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-body-light footp">
+              <Link to="/prices" className="nav-link px-2 text-body-light footp">
                 Árak
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-body-light footp">
+              <Link to="/faq" className="nav-link px-2 text-body-light footp">
                 GY.I.K
-              </a>
+              </Link>
             </li>
           </ul>
         </footer>

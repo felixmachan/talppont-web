@@ -11,6 +11,25 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
+.home-panel-no-top {
+  border-top: none;
+}
+
+.home-panel-no-bottom {
+  border-bottom: none;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-item.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .home-panel-light {
   background-color: #ffffff;
 }
@@ -75,6 +94,16 @@
   border-radius: 999px;
   background: rgba(19, 62, 135, 0.06);
   font-size: 0.85rem;
+}
+
+.home-inline-card {
+  width: 100%;
+  max-width: 440px;
+  margin-top: 30px !important;
+}
+
+.home-tags + .home-inline-card {
+  margin-top: 18px;
 }
 
 .home-side {
@@ -181,6 +210,7 @@
   padding: 20px;
   background: rgba(19, 62, 135, 0.08);
   border: 1px dashed rgba(19, 62, 135, 0.35);
+  margin-top: 20px;
 }
 
 .home-highlight h3 {
