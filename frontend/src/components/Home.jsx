@@ -45,6 +45,39 @@ function Home() {
         buttonAction={handlePrimaryClick}
       />
 
+      <section className="home-panel home-panel-accent reveal-item">
+        <div className="home-panel-inner">
+          <div className="home-content">
+            <span className="home-eyebrow">Én</span>
+            <h2 className="home-title">Bartos Brigitta</h2>
+            <p className="home-lead">
+              Több éves tapasztalattal a hátam mögött segítek neked feltöltődni,
+              legyen szó reflexológiáról, talpmasszázsról vagy pedikűrről.
+            </p>
+            <ul className="home-list">
+              <li>A legjobbaktól tanultam,</li>
+              <li>
+                Hogy a lehető legjobb és legeredményesebb szolgáltatást
+                nyújthassam vendégeimnek.
+              </li>
+              <li>
+                Tőlem személyre szabott figyelmet kapsz, mert minden test és
+                lélek más.
+              </li>
+            </ul>
+          </div>
+          <div className="home-side">
+            <div className="home-image-card">
+              <img
+                className="home-image"
+                src="https://placehold.co/680x520/png"
+                alt="Bartos Brigitta"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="home-panel home-panel-light home-panel-no-top reveal-item">
         <div className="home-panel-inner">
           <div className="home-content">
