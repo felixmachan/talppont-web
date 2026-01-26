@@ -177,7 +177,7 @@ function Services() {
           lead={service.lead}
           bullets={service.bullets}
           tags={service.tags}
-          panelClassName={`${index % 2 === 0 ? "panel-light" : "panel-accent"}${
+          panelClassName={`${index % 2 === 0 ? "wave-background" : "panel-accent"}${
             index % 2 !== 0 ? " blue-bg" : ""
           }${index === 1 ? " panel-topographic" : ""}${
             index === 0 ? " panel-no-top-border" : ""
