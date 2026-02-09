@@ -11,7 +11,7 @@ function Footer() {
           className="d-flex flex-wrap align-items-center py-2 px-4 my-0 footer-inner"
           style={{ justifyContent: "space-between" }}
         >
-          <p className="col-12 col-md-4 mb-0 text-body-secondary footp footer-left">
+          <p className="col-12 col-md-4 mb-0 ms-md-4 text-body-secondary footp footer-left">
             © 2026 TalpPont
             <br />
             <span className="developer">
